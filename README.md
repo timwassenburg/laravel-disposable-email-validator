@@ -1,56 +1,37 @@
 # Laravel Disposable Email Validator
-This package adds validation to check if a given email address is a disposable email adress. 
+Prevent users from registrering with a disposable email addresses with this validation rule. 
 
 ## Installation
 Run composer require to install the package.
 ```bash
-composer require timwassenburg/disposable-email-validator
+composer require timwassenburg/laravel-disposable-email-validator
 ```
 
 ## Usage
-If you are working with a Form Request you can add the disposable-email rule to input value you want to check. 
+Add the disposable-email rule to input you want to check. 
 Keep in mind that the ```disposable-email``` rule doesn't check if the email is valid so it is recommended
 to use it in combination with the ```email``` validation rule.
 
 ```php
-public function rules()
-{
-    return [
-        'email' => 'required|email|disposable-email'
-    ];
-}
-```
-
-When validating the request inside your controller you can use the following:
-
-```php
-public function store(Request $request)
-{
-    $validated = $request->validate([
-        'email' => 'required|email|disposable-email'
-    ]);
-    
-    // your code
-}
+'email' => 'required|email|disposable-email'
 ```
 
 ## Translations
-First publish the translations with the following command.
+Publish the translations with the following command.
 ```bash
 php artisan vendor:publish --provider="TimWassenburg\DisposableEmailValidator\DisposableEmailServiceProvider" --tag="translations"
 ```
-You can now find the language files in ```/resources/lang/vendor/disposable-email```, here you can add new languages or
-update existing translations.
+You can now add or update translations in the ```resources/lang/vendor/disposable-email``` folder.
 
 ## Adding more disposable email domains
-To add more domains you need to publish the config. The config file contains all domains the validator is checking, 
-you can extend the list by adding more domains when needed.
+The config contains all domains the validator is checking, 
+you can publish the config and extend the list by adding more domains.
 ```bash
 php artisan vendor:publish --provider="TimWassenburg\DisposableEmailValidator\DisposableEmailServiceProvider" --tag="config"
 ```
 
 ## Caching
-The list of disposable emails is loaded from a config file. For a production environment it is recommended to cache the
+Although this might be obvious, just a small reminder. The list of disposable emails is loaded from a config file. For a production environment it is recommended to cache the
 config for optimal performance. You can use the default Laravel config caching for this.
 
 ```bash

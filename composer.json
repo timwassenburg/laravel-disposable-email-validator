@@ -1,8 +1,8 @@
 {
-    "name": "timwassenburg/disposable-email-validator",
+    "name": "timwassenburg/laravel-disposable-email-validator",
     "description": "Validate if the input is an disposable email address",
     "keywords": ["validation", "php", "cli", "laravel", "email"],
-    "homepage": "https://github.com/timwassenburg/disposable-email-validator",
+    "homepage": "https://github.com/timwassenburg/laravel-disposable-email-validator",
     "license": "MIT",
     "authors": [
         {
