@@ -2,13 +2,21 @@
 
 namespace TimWassenburg\DisposableEmailValidator;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
+use TimWassenburg\DisposableEmailValidator\Services\DisposableEmailService;
 use Validator;
 
 class DisposableEmailServiceProvider extends ServiceProvider
 {
+    protected $disposableEmailService;
+
+    public function __construct($app)
+    {
+        $this->disposableEmailService = new DisposableEmailService;
+
+        parent::__construct($app);
+    }
+
     /**
      * Register services.
      *
@@ -22,7 +30,7 @@ class DisposableEmailServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'disposable-email');
-        $this->DisposableEmailValidator();
+        $this->registerDisposableEmailRule();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -35,14 +43,14 @@ class DisposableEmailServiceProvider extends ServiceProvider
         }
     }
 
-    public function DisposableEmailValidator()
+    public function registerDisposableEmailRule()
     {
-        Validator::extend('DisposableEmail', function ($attribute, $value) {
-            $disposableDomains = config('disposable-email.domains');
-            $value = explode('@', strtolower($value));
-            $inputDomain = array_pop($value);
+        Validator::extend('DisposableEmail', function ($attribute, $email) {
+            $domain = $this->disposableEmailService->getDomainFromEmailAddress($email);
 
-            return ! in_array($inputDomain, $disposableDomains);
+            return $this->disposableEmailService->isDisposableDomain($domain);
         }, trans('disposable-email::validation.disposable_email_validation_message'));
     }
+
+
 }
