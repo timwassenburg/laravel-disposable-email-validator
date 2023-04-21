@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://github.com/timwassenburg/laravel-improved-resource-controllers">
+  <a href="https://github.com/timwassenburg/laravel-disposable-email-validator">
     <img src="img/logo.png" alt="Logo" width=120>
   </a>
 
@@ -11,6 +11,10 @@
   </p>
 <br><br>
 </div>
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/timwassenburg/laravel-disposable-email-validator.svg?style=flat-square)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
+[![Total Downloads](https://img.shields.io/packagist/dt/timwassenburg/laravel-disposable-email-validator.svg?style=flat-square)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
+[![License](https://img.shields.io/packagist/l/timwassenburg/laravel-disposable-email-validator)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
 
 ## Table of Contents
   <ol>
