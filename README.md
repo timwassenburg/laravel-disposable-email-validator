@@ -1,20 +1,10 @@
-<br />
-<div align="center">
-  <a href="https://github.com/timwassenburg/laravel-disposable-email-validator">
-    <img src="img/logo.png" alt="Logo" width=120>
-  </a>
-
-<h1 align="center">Laravel Disposable Email Validator</h1>
-
-  <p align="center">
-    Prevent users from registrering with a disposable email addresses!
-  </p>
-<br><br>
-</div>
+<img src="img/banner.png" alt="Logo">
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/timwassenburg/laravel-disposable-email-validator.svg?style=flat-square)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
 [![Total Downloads](https://img.shields.io/packagist/dt/timwassenburg/laravel-disposable-email-validator.svg?style=flat-square)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
 [![License](https://img.shields.io/packagist/l/timwassenburg/laravel-disposable-email-validator)](https://packagist.org/packages/timwassenburg/laravel-disposable-email-validator)
+
+<hr>
 
 ## Table of Contents
   <ol>
